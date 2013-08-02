@@ -26,6 +26,11 @@ aside {
   width: 26%;
   background-color: blue;
   position: relative;
+  margin-top: 20px;
+  transition:All 0.3s ease;
+-webkit-transition:All 0.3s ease;
+-moz-transition:All 0.3s ease;
+-o-transition:All 0.3s ease;
 }
 
 aside.left_col {
@@ -44,6 +49,10 @@ aside.right_col.hidden {
   right: -16%;
 }
 
+.slideover:checked+aside {
+  right: 0;
+  left: 0;
+}
 
 
 .main, aside {
