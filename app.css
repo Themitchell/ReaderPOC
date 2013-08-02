@@ -4,65 +4,55 @@
 }
 
 body {
-  overflow: hidden;
-}
-
-aside {
-  display: block;
-}
-
-.container {
-  position: absolute;
-  height: 100%;
-  overflow-y: scroll;
   overflow-x: hidden;
 }
 
-.main {
-  position: absolute;
-  left: 3%;
-  right: 0;
-  width: 94%;
-  background-color: green;
-  z-index: -100;
+.container {
+  position: relative;
 }
 
 .content {
   margin: 5%;
 }
 
-aside {
-  height: 100%;
-  width: 53%;
-  background-color: blue;
-  position: relative;
-}
-
-.main, aside, .slideover {
-  transition:All 2s ease;
-  -webkit-transition:All 2s ease;
-  -moz-transition:All 2s ease;
-  -o-transition:All 2s ease;
+.aside_content {
+  margin: 5% 15%;
 }
 
 aside.left_col {
-  float: left;
-  margin-right: -20%;
-  left: -50%;
+  left: -25%;
 }
+
 aside.right_col {
-  float: right;
-  margin-left: -20%;
-  right: -50%;
+  right: -25%;
+}
+
+aside {
+  display: block;
+  position: absolute;
+  width: 28%;
+  height: 100%;
+  background-color: red;
+}
+
+.main {
+  width: 100%;
+}
+
+.main, aside, .slideover {
+  transition:All 0.5s ease;
+  -webkit-transition:All 0.5s ease;
+  -moz-transition:All 0.5s ease;
+  -o-transition:All 0.5s ease;
 }
 
 .slideover {
   position: absolute;
-  z-index: 100;
-  display: block;
-  width: 3%;
+  top: 0;
   height: 100%;
+  width: 3%;
   cursor: pointer;
+  z-index: 100;
 }
 
 .slideover.left {
@@ -74,20 +64,19 @@ aside.right_col {
 }
 
 .slideover.left:checked {
-  left: 50%;
+  left: 25%;
 }
 
 .slideover.right:checked {
-  right: 50%;
+  right: 25%;
 }
 
-
 .slideover.left:checked ~ .main {
-  left: 53%;
+  margin-left: 25%;
 }
 
 .slideover.right:checked ~ .main {
-  left: -47%;
+  margin-left: -25%;
 }
 
 .slideover:checked + aside.left_col {
@@ -97,3 +86,4 @@ aside.right_col {
 .slideover:checked + aside.right_col {
   right: 0;
 }
+
