@@ -11,11 +11,11 @@ aside {
   display: block;
 }
 
-.container {
-  position: absolute;
-  width: 200%;
-  height: 100%;
-  left: -50%;
+
+.main {
+  display: inline-block;
+  width: 88%;
+  background-color: green;
 }
 
 .main .content {
@@ -25,16 +25,30 @@ aside {
 aside {
   width: 26%;
   background-color: blue;
+  position: relative;
 }
 
-.main {
-  width: 48%;
-  background-color: green;
+aside.left_col {
+  float: left;
+  margin-right: -20%;
 }
+aside.right_col {
+  float: right;
+  margin-left: -20%;
+}
+
+aside.left_col.hidden {
+  left: -16%;
+}
+aside.right_col.hidden {
+  right: -16%;
+}
+
+
 
 .main, aside {
-  float: left;
-  height: 100%;
+/*  float: left;
+  height: 100%;*/
 }
 
 .slideover.left:checked ~ .container {
