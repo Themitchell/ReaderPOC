@@ -15,6 +15,10 @@ body {
   margin: 5%;
 }
 
+.main {
+  overflow: hidden;
+}
+
 .aside_content {
   margin: 5% 15%;
 }
