@@ -4,95 +4,96 @@
 }
 
 body {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 aside {
   display: block;
 }
 
-
-.main {
-  display: inline-block;
-  width: 88%;
-  background-color: green;
+.container {
+  position: absolute;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
-.main .content {
+.main {
+  position: absolute;
+  left: 3%;
+  right: 0;
+  width: 94%;
+  background-color: green;
+  z-index: -100;
+}
+
+.content {
   margin: 5%;
 }
 
 aside {
-  width: 26%;
+  height: 100%;
+  width: 53%;
   background-color: blue;
   position: relative;
-  margin-top: 20px;
-  transition:All 0.3s ease;
--webkit-transition:All 0.3s ease;
--moz-transition:All 0.3s ease;
--o-transition:All 0.3s ease;
+}
+
+.main, aside, .slideover {
+  transition:All 2s ease;
+  -webkit-transition:All 2s ease;
+  -moz-transition:All 2s ease;
+  -o-transition:All 2s ease;
 }
 
 aside.left_col {
   float: left;
   margin-right: -20%;
+  left: -50%;
 }
 aside.right_col {
   float: right;
   margin-left: -20%;
+  right: -50%;
 }
 
-aside.left_col.hidden {
-  left: -16%;
-}
-aside.right_col.hidden {
-  right: -16%;
+.slideover {
+  position: absolute;
+  z-index: 100;
+  display: block;
+  width: 3%;
+  height: 100%;
+  cursor: pointer;
 }
 
-.slideover:checked+aside {
-  right: 0;
+.slideover.left {
   left: 0;
 }
 
-
-.main, aside {
-/*  float: left;
-  height: 100%;*/
+.slideover.right {
+  right: 0;
 }
 
-.slideover.left:checked ~ .container {
-  -webkit-animation: leftslidein 2s 1 ease forwards;
+.slideover.left:checked {
+  left: 50%;
 }
 
-.slideover.left ~ .container {
-  -webkit-animation: leftslideout 2s 1 ease forwards;
+.slideover.right:checked {
+  right: 50%;
 }
 
-.slideover.right:checked ~ .container {
-  -webkit-animation: rightslidein 2s 1 ease forwards;
+
+.slideover.left:checked ~ .main {
+  left: 53%;
 }
 
-.slideover.right ~ .container {
-  -webkit-animation: rightslideout 2s 1 ease forwards;
+.slideover.right:checked ~ .main {
+  left: -47%;
 }
 
-@-webkit-keyframes leftslidein {
-  0%    { left: -50%; }
-  100%  { left: 0; }
+.slideover:checked + aside.left_col {
+  left: 0;
 }
 
-@-webkit-keyframes leftslideout {
-  0%    { left: 0; }
-  100%  { left: -50%; }
+.slideover:checked + aside.right_col {
+  right: 0;
 }
-
-@-webkit-keyframes rightslidein {
-  0%    { left: -50%; }
-  100%  { left: -100%; }
-}
-
-@-webkit-keyframes rightslideout {
-  0%    { left: -100%; }
-  100%  { left: -50%; }
-}
-
