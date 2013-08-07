@@ -1,0 +1,147 @@
+$small-device-move-by: $small-device-width - $gutter-width;
+$small-medium-device-move-by: $small-medium-device-width - $gutter-width;
+$medium-device-move-by: $medium-device-width - $gutter-width;
+$large-device-move-by: $large-device-width - $gutter-width;
+
+
+.main, .slidepanel, .slidepanel_button {
+  transition:         All 0.5s ease;
+  -webkit-transition: All 0.5s ease;
+  -moz-transition:    All 0.5s ease;
+  -o-transition:      All 0.5s ease;
+}
+
+.slidepanel, .slidepanel_button {
+  position: fixed;
+  top: 40px;
+  bottom: 0;
+}
+
+.slidepanel {
+  background-color: red;
+
+  width: $small-device-width;
+
+  &.left_col  { left: -$small-device-move-by; }
+  &.right_col { right: -$small-device-move-by; }
+}
+
+@media (min-width: $small-medium-device-width + 1) and (max-width: $medium-device-width) {
+  .slidepanel {
+    width: $small-medium-device-width;
+
+    &.left_col  { left: -$small-medium-device-move-by; }
+    &.right_col { right: -$small-medium-device-move-by; }
+  }
+}
+
+@media (min-width: $medium-device-width + 1) and (max-width: $large-device-width) {
+  .slidepanel {
+    width: $medium-device-width;
+
+    &.left_col  { left: -$medium-device-move-by; }
+    &.right_col { right: -$medium-device-move-by; }
+  }
+}
+
+@media (min-width: $large-device-width + 1) {
+  .slidepanel {
+    width: $large-device-width;
+
+    &.left_col  { left: -$large-device-move-by; }
+    &.right_col { right: -$large-device-move-by; }
+  }
+}
+
+
+.slidepanel_button {
+  display: block;
+  width: $gutter-width;
+  z-index: 100;
+
+  &.left_col  {
+    left: 0;
+
+    &:checked {
+      left: $small-device-move-by;
+
+      &~ input.slidepanel_button.right_col { right:        -$gutter-width; }
+      &~ .slidepanel.left_col         { left:         0; }
+      &~ .slidepanel.right_col        { right:        -$small-device-width; }
+      &~ .main                        { left:         $small-device-move-by; }
+    }
+  }
+
+  &.right_col  {
+    right: 0;
+
+    &:checked {
+      right: $small-device-move-by;
+
+      &~ input.slidepanel_button.left_col  { left:        -$gutter-width; }
+      &~ .slidepanel.right_col        { right:        0; }
+      &~ .slidepanel.left_col         { left:         -$small-device-width; }
+      &~ .main                        { right:        $small-device-move-by; }
+    }
+  }
+}
+
+@media (min-width: $small-medium-device-width + 1) and (max-width: $medium-device-width) {
+  .slidepanel_button {
+    width: $gutter-width;
+
+    &.left_col:checked {
+      left: $small-medium-device-move-by;
+
+      &~ .slidepanel.right_col        { right:        -$small-medium-device-width; }
+      &~ .main                        { left:         $small-medium-device-move-by; }
+    }
+
+    &.right_col:checked {
+      right: $medium-device-move-by;
+
+      &~ .slidepanel.left_col         { left:         -$medium-device-width; }
+      &~ .main                        { right:        $medium-device-move-by; }
+    }
+  }
+}
+
+@media (min-width: $medium-device-width + 1) and (max-width: $large-device-width) {
+  .slidepanel_button {
+    width: $gutter-width;
+
+    &.left_col:checked {
+      left: $medium-device-move-by;
+
+      &~ .slidepanel.right_col        { right:        -$medium-device-width; }
+      &~ .main                        { left:         $medium-device-move-by; }
+    }
+
+    &.right_col:checked {
+      right: $medium-device-move-by;
+
+      &~ .slidepanel.left_col         { left:         -$medium-device-width; }
+      &~ .main                        { right:        $medium-device-move-by; }
+    }
+  }
+}
+
+@media (min-width: $large-device-width + 1) {
+  .slidepanel_button {
+    width: $gutter-width;
+
+    &.left_col:checked {
+      left: $large-device-move-by;
+
+      &~ .slidepanel.right_col        { right:        -$large-device-width; }
+      &~ .main                        { left:         $large-device-move-by; }
+    }
+
+    &.right_col:checked {
+      right: $large-device-move-by;
+
+      &~ .slidepanel.left_col         { left:         -$large-device-width; }
+      &~ .main                        { right:        $large-device-move-by; }
+    }
+  }
+}

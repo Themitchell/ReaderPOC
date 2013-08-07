@@ -1,93 +1,20 @@
-* {
-  padding: 0;
-  margin: 0;
-}
+$gutter-width: 20px;
 
-body {
-  overflow-x: hidden;
-}
+$small-device-width: 320px;
+$small-device-content-width: $small-device-width - ($gutter-width * 4);
 
-.container {
-  position: relative;
-}
+$small-medium-device-width: 450px;
+$small-medium-device-content-width: $small-medium-device-width - ($gutter-width * 4);
 
-.content {
-  margin: 5%;
-}
+$medium-device-width: 720px;
+$medium-device-content-width: $medium-device-width - ($gutter-width * 4);
 
-.main {
-  overflow: hidden;
-}
+$large-device-width: 1024px;
+$large-device-content-width: $large-device-width - ($gutter-width * 4);
 
-.aside_content {
-  margin: 5% 15%;
-}
+@import './reset';
+@import './text';
+@import './layout';
 
-aside.left_col {
-  left: -25%;
-}
-
-aside.right_col {
-  right: -25%;
-}
-
-aside {
-  display: block;
-  position: absolute;
-  width: 28%;
-  height: 100%;
-  background-color: red;
-}
-
-.main {
-  width: 100%;
-}
-
-.main, aside, .slideover {
-  transition:All 0.5s ease;
-  -webkit-transition:All 0.5s ease;
-  -moz-transition:All 0.5s ease;
-  -o-transition:All 0.5s ease;
-}
-
-.slideover {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 3%;
-  cursor: pointer;
-  z-index: 100;
-}
-
-.slideover.left {
-  left: 0;
-}
-
-.slideover.right {
-  right: 0;
-}
-
-.slideover.left:checked {
-  left: 25%;
-}
-
-.slideover.right:checked {
-  right: 25%;
-}
-
-.slideover.left:checked ~ .main {
-  margin-left: 25%;
-}
-
-.slideover.right:checked ~ .main {
-  margin-left: -25%;
-}
-
-.slideover:checked + aside.left_col {
-  left: 0;
-}
-
-.slideover:checked + aside.right_col {
-  right: 0;
-}
-
+@import './modules/header';
+@import './modules/slidepanel';

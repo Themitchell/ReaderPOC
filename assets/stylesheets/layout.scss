@@ -1,0 +1,33 @@
+body {
+  overflow-y: scroll;
+}
+
+.main {
+  position: relative;
+  margin-top: 40px;
+  overflow: hidden;
+  z-index: -100;
+}
+
+.container {
+  width: $small-device-content-width;
+  margin: 0 auto;
+}
+
+@media (min-width: $small-medium-device-width + 1) and (max-width: $medium-device-width) {
+  .container {
+    width: $small-medium-device-content-width;
+  }
+}
+
+@media (min-width: $medium-device-width + 1) and (max-width: $large-device-width) {
+  .container {
+    width: $medium-device-content-width;
+  }
+}
+
+@media (min-width: $large-device-width + 1) {
+  .container {
+    width: $large-device-content-width;
+  }
+}
